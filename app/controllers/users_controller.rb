@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
      before_action :find_user, only: [:show, :edit, :update, :delete]
+    
     def index
     end
 
@@ -8,13 +9,12 @@ class UsersController < ApplicationController
     end
 
     def create
-        byebug
         @user = User.create(user_params)
-        byebug
         redirect_to user_path(@user) 
     end
 
     def show
+        byebug
     end
 
     def edit
