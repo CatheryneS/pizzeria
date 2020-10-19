@@ -5,4 +5,5 @@ class User < ApplicationRecord
     validates :email, uniqueness: true, email: true
     validates :phone, presence: true
 
+    has_many :pizzas
 end
