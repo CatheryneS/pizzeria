@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_18_134558) do
+ActiveRecord::Schema.define(version: 2020_10_19_025149) do
+
+  create_table "pizzas", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "size"
+    t.string "timestamps"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_pizzas_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"
