@@ -1,8 +1,8 @@
 <h1>Login</h1>
-<%= form_with(url: sessions_path, method: "post") do |f| %>
-    <%= f.label :email %>
-    <%= f.email_field :email%>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-    <%= f.submit "Login" %>
+<%= form_with do %>
+    <%= label_tag :email %>
+    <%= email_field_tag :email%>
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+    <%= submit_tag "Login" %>
 <% end %>
