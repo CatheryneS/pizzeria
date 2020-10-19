@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get 'welcome/index'
 
-  resources :users, except: [:new] 
+  resources :users, except: [:new] do
+    resources :orders
+  end 
 
   get 'signup', to: 'users#new'
   
@@ -9,7 +11,7 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   get 'logout', to:'sessions#destroy'
 
-  resources :pizzas 
+  resources :pizzas
   
   root 'welcome#index'
 end
