@@ -1,2 +1,8 @@
-<h1>Pizzas#new</h1>
-<p>Find me in app/views/pizzas/new.html.erb</p>
+<h1>Create a Pizza</h1>
+<%= form_with model: @pizza do |f| %>
+    <%= f.label :name %> <br>
+    <%= f.text_field :name %> <br> <br>
+    <%= f.label :description %> <br>
+    <%= f.text_area :description %> <br>
+    <%= f.submit %>
+<% end %>
