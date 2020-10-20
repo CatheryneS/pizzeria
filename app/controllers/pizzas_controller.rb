@@ -13,6 +13,7 @@ class PizzasController < ApplicationController
 
   def create
     @pizza = Pizza.new(pizza_params)
+    byebug
       if @pizza.valid?
         @pizza.save
         redirect_to pizzas_path
