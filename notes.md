@@ -24,14 +24,15 @@ Users
 [] view all orders made
 
 Pizza
-[] Attributes
-    [] name
-    [] description
-    [] size (will be a collection with a default)
-    [] timestamps
-[] Can be added to an order through an order form
+[X] Attributes
+    [X] name
+    [X] description
+    [X] size (will be a collection with a default)
+    [X] timestamps
+[] Pizza created by user or admin can be added to an order through an order form
 [] CRUD
-    [] Create a new pizza
+    [/] Create a new pizza
+        - Pizza needs to be assoicated with the user that created it.
         - Form will probably need to be accessed on user's order form (nested resources?)
     [] Read all on menu page and show page
     [] Update name, description, size
