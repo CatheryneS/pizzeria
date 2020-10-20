@@ -14,7 +14,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.valid?
             @user.save
-            redirect_to user_path(@user)
+            redirect_to login_path
         else
             render :new
         end 
@@ -43,6 +43,6 @@ class UsersController < ApplicationController
     end
 
     def require_login
-        return head(:forbidden) unless session.include? :user_id
+        redirect_to login_path unless session.include? :user_id
     end
 end
