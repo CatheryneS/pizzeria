@@ -9,6 +9,7 @@ class PizzasController < ApplicationController
 
   def new
     @pizza = Pizza.new
+    byebug
   end
 
   def create
@@ -34,7 +35,7 @@ class PizzasController < ApplicationController
   private
 
   def pizza_params
-    params.require(:pizza).permit(:name, :description, :size)
+    params.require(:pizza).permit(:name, :description, :size, :user_id)
   end
 
   def find_pizza
