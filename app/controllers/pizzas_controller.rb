@@ -4,17 +4,18 @@ class PizzasController < ApplicationController
   before_action :find_pizza, only: [:show, :edit, :update]
   
   def index
-    @pizzas = Pizza.all
+    @pizzas = Pizza.all 
+    if logged_in?
+      @user = current_user
+    end
   end
 
   def new
     @pizza = Pizza.new
-    byebug
   end
 
   def create
     @pizza = Pizza.new(pizza_params)
-    byebug
       if @pizza.valid?
         @pizza.save
         redirect_to pizzas_path

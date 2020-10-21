@@ -1,8 +1,22 @@
 <h1>Pizzas</h1>
 <br>
+<h2>Our Creations </h2>
 <% @pizzas.each do |pizza| %>
-    <section>
-    <h3><%= pizza.name%></h3>
-    <p><%= pizza.description%></p>
-    </section>
+    <% if pizza.user != @user%>
+        <section>
+            <h3><%= pizza.name%></h3>
+            <p><%= pizza.description%></p>
+        </section>
+    <% end %>
+<% end %>
+<br>
+<% if logged_in? %>
+    <h2>Your Creations </h2>
+    <% @user.pizzas.each do |pizza| %>
+        <section>
+        <h3><%= pizza.name%></h3>
+        <p><%= pizza.description%></p>
+        </section>
+    <% end %>
+    <%= link_to 'Create your own', path %>
 <% end %>
