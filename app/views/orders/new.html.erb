@@ -1,7 +1,7 @@
 <h1>Order</h1>
 <%= form_with model: @order do |f|%>
  <%= f.label 'Select pizza(s)'%> <br>
- <%= f.select(:pizza_id, Pizza.all.collect {|p| [ p.name, p.id ] }, { include_blank: true})%> <br>
+ <%= f.collection_check_boxes(:pizza_ids, Pizza.all, :id, :name)%> <br>
  <br><%= f.label 'Special request(s)'%> <br>
  <%= f.text_area :note %> <br>
  <%= f.submit%>

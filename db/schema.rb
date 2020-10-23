@@ -10,25 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_23_040704) do
+ActiveRecord::Schema.define(version: 2020_10_23_051134) do
 
-  create_table "order_pizza", force: :cascade do |t|
+  create_table "order_pizzas", force: :cascade do |t|
     t.integer "order_id"
     t.integer "pizza_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["order_id"], name: "index_order_pizza_on_order_id"
-    t.index ["pizza_id"], name: "index_order_pizza_on_pizza_id"
+    t.index ["order_id"], name: "index_order_pizzas_on_order_id"
+    t.index ["pizza_id"], name: "index_order_pizzas_on_pizza_id"
   end
 
   create_table "orders", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "pizza_id"
     t.string "status"
     t.string "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["pizza_id"], name: "index_orders_on_pizza_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
