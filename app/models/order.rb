@@ -1,5 +1,6 @@
 class Order < ApplicationRecord
     belongs_to :user
-    belongs_to :pizza
+    has_many :order_pizzas
+    has_many :pizzas, through: :order_pizzas
 
 end

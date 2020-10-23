@@ -7,5 +7,5 @@ class User < ApplicationRecord
 
     has_many :pizzas #pizzas created by the user
     has_many :orders
-    has_many :ordered_pizzas, through: :orders, source: :pizza
+    # has_many :ordered_pizzas, through: :orders, source: :pizza
 end
