@@ -1,1 +1,8 @@
 <h1><%= current_user.first_name%>'s Orders</h1>
+
+<% current_user.orders.each do |order| %>
+    <section>
+       <h3>Pizza Name: <%= order.pizza.name%></h3> 
+        Notes: <%= order.note %>
+    </section>
+<% end %>

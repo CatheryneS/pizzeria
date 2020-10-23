@@ -2,8 +2,10 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
   resources :users, except: [:new] do
-    resources :orders
-  end 
+    resources :orders, only: [:index]
+  end
+  
+  resources :orders 
 
   get 'signup', to: 'users#new'
   
@@ -14,4 +16,10 @@ Rails.application.routes.draw do
   resources :pizzas
   
   root 'welcome#index'
+
+  # <#---Nested Routes--->
+  # '/users/:id/orders' #shows users orders
+  # '/users/:id/pizzas' #shows pizzas created by or once ordered by the pizzas
+  # '/pizzas/:id/orders' #shows orders that contain pizzas
+  # '/pizzas/:id/users' #shows users that ordered the pizza
 end

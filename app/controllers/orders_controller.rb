@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
         @order = Order.new
     end
 
-    def create
+    def create 
         @order = current_user.orders.build(order_params)
         if @order.valid?
             @order.save
@@ -17,6 +17,6 @@ class OrdersController < ApplicationController
     private
 
     def order_params
-        params.require(:order).permit(:note, pizza_id: [])
+        params.require(:order).permit(:note, :pizza_id)
     end
 end
