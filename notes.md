@@ -5,23 +5,20 @@ Users
 [X] Has email
 [X] Has password that is crypted
 [X] Has phone number
-[] Can Signup
+[X] Can Signup
     [X] vaildates user attributes before saving
     [X] form is pre-filled when user is directed back because of a vaildation error
-    [] Shows error and success messages
-[] Can Login
+    [X] Shows error and success messages
+[X] Can Login
     [X] vaildates user based on email & password
-    [] shows error and success messages
+    [X] shows error and success messages
 [] Can Logout
     [X] logs out user based on session[:user_id]
     [X] redirects to a homepage or login page
     [] shows error and success messages
-[] Can use another service to signup/login/logout
-[] Relations between other models
-    [] has_many pizzas
-    [] has_many pizzas, through orders
-    [] has_many reviews (stretch goal)
-[] view all orders made
+[X] Can use another service to signup/login/logout
+[x] Relations between other models
+[x] view all orders made
 
 Pizza
 [X] Attributes
@@ -29,7 +26,7 @@ Pizza
     [X] description
     [X] size (will be a collection with a default)
     [X] timestamps
-[] Pizza created by user or admin can be added to an order through an order form
+[x] Pizza created by user or admin can be added to an order through an order form
 [] CRUD
     [/] Create a new pizza
         - Pizza needs to be assoicated with the user that created it.
@@ -39,14 +36,13 @@ Pizza
     [] Delete - only by the creator and/or admin
 
 Orders
-[] associations
-    [] belongs_to :pizza
-    [] belongs_to :user
+[x] associations
+    [x] belongs_to :user
 [] attributes
-    [] notes
+    [x] notes
     [] status
-[] show all pizzas added to order
-[] can be "placed"
+[x] show all pizzas added to order
+[x] can be "placed"
 [] more pizzas can be added
 
 
