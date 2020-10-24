@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-    # has_secure_password
+    has_secure_password
     validates :name, presence: true
-    validates :email, uniqueness: true, email: true
+    validates :email, uniqueness: true, presence: true
     validates :phone, uniqueness: true
 
     has_many :pizzas #pizzas created by the user
