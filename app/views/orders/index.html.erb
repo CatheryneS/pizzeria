@@ -2,7 +2,8 @@
 
 <% current_user.orders.each do |order| %>
     <section>
-       <h3>Pizza Name: <%= order.pizza.name%></h3> 
+       <h3><%= order.created_at.strftime("Placed on %B %d, %Y at %k:%M %p") %></h3>
+       <h3>Total pizzas ordered: <%= order.pizzas.count%></h3> 
         Notes: <%= order.note %>
     </section>
 <% end %>
