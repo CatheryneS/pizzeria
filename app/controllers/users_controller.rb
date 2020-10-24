@@ -41,8 +41,4 @@ class UsersController < ApplicationController
     def user_params
         params.require(:user).permit(:first_name, :last_name, :email, :phone, :password)
     end
-
-    def require_login
-        redirect_to login_path unless session.include? :user_id
-    end
 end

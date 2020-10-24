@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+    before_action :require_login
 
     def new
         @order = Order.new
