@@ -4,7 +4,7 @@
 <% @pizzas.each do |pizza| %>
     <% if pizza.user != @user%>
         <section>
-            <h3><%= pizza.name%></h3>
+            <h3><%= link_to pizza.name, pizza_path(pizza) %></h3>
             <p><%= pizza.description%></p>
         </section>
     <% end %>
