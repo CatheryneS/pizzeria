@@ -6,7 +6,6 @@ class OrdersController < ApplicationController
 
     def create 
         @order = current_user.orders.build(order_params)
-        add_pizzas(params[:order][:pizza_ids])
 
         if @order.valid?
             @order.save
@@ -19,15 +18,7 @@ class OrdersController < ApplicationController
     private
 
     def order_params
-        params.require(:order).permit(:note, :pizza_id)
+        params.require(:order).permit(:note, pizza_ids: [])
     end
 
-    def add_pizzas(pizzas)
-        pizzas.each do |pizza_id|
-            if !pizza_id.empty?
-                pizza = Pizza.find_by_id(pizza_id)
-                @order.pizzas << pizza
-            end
-        end
-    end
 end
