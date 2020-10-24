@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:index]
   end
   
-  resources :orders 
+  resources :orders, expect: [:index] 
 
   get 'signup', to: 'users#new'
   
@@ -15,8 +15,10 @@ Rails.application.routes.draw do
 
   get '/auth/facebook/callback' => 'sessions#create_facebook'
 
-  resources :pizzas
-  
+  resources :pizzas do
+    resources :reviews
+  end
+
   root 'welcome#index'
 
   # <#---Nested Routes--->
