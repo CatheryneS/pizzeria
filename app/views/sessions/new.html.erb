@@ -1,4 +1,7 @@
 <h1>Login</h1>
+
+<%= flash[:error] if flash[:error]%>
+
 <%= form_with do %>
     <%= label_tag :email %>
     <%= email_field_tag :email%>

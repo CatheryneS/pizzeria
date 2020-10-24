@@ -1,2 +1,49 @@
 <h1>Sign Up</h1>
-<%= render 'form'%>
+
+<%# <%= render 'form'%> 
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@user.errors.count, "error") %>
+      prohibited this user from being saved:
+    </h2>
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @user do |f| %>
+
+    <section>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </section>
+
+    <section>
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+    </section>
+
+    <section>
+        <%= f.label :phone %>
+        <%= f.telephone_field :phone %>
+    </section>    
+
+    <section>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+    </section>
+
+    <section>
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %>
+    </section>
+        
+    <section>
+        <%= f.submit %>
+    </section>
+   
+<% end %>
