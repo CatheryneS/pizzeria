@@ -10,16 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_19_043054) do
+ActiveRecord::Schema.define(version: 2020_10_24_013417) do
+
+  create_table "order_pizzas", force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "pizza_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_order_pizzas_on_order_id"
+    t.index ["pizza_id"], name: "index_order_pizzas_on_pizza_id"
+  end
 
   create_table "orders", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "pizza_id"
     t.string "status"
     t.string "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["pizza_id"], name: "index_orders_on_pizza_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
