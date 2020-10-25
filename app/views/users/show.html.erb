@@ -21,14 +21,14 @@
 <% end %>
 
 <h3>Pizzas you've reviewed</h3>
-<%if !@user.reviews.nil?%>
+<%if !@user.reviews.empty?%>
     <% @user.reviews.each do |r| %>
         <section>
-        <%= r.pizza.name%>
+        <%= r.pizza.name%> | <%= link_to 'View review', review_path(r) %>
         </section>
     <% end %>
 <% else %>
-    <%= link_to 'Review a pizza', pizzas_path %>
+    <h4><%= link_to 'Review a pizza', pizzas_path %></h4>
 <% end %>
-
+<br>
 <%= link_to 'Edit Account', edit_user_path %>

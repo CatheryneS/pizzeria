@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
-    # before_action :require_login
+    before_action :require_login
+    skip_before_action :require_login, only: [:index, :show]
 
     def index
         if params[:pizza_id] && @pizza = Pizza.find_by(id: params[:pizza_id])
@@ -30,6 +31,7 @@ class ReviewsController < ApplicationController
     end
 
     def show
+        byebug
     end
 
     def edit
@@ -45,5 +47,9 @@ class ReviewsController < ApplicationController
 
     def review_params
         params.require(:review).permit(:rating, :content, :pizza_id)
+    end
+
+    def find_review
+        @review 
     end
 end

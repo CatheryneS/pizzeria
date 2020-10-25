@@ -1,6 +1,9 @@
 <h1><%= @pizza.name %></h1>
 <p><%= @pizza.description %></p>
 
+<h4><%= link_to 'Leave a review', new_pizza_review_path(@pizza, @review) %></h4>
+<br/>
+<h2>Reviews</h2>
 <% @pizza.reviews.each do |review| %>
     <section>
         <h3><%= review.user.name %></h3>

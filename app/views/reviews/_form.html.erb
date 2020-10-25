@@ -1,0 +1,30 @@
+<% if @review.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@review.errors.count, "error") %>
+      prohibited this review from being saved:
+    </h2>
+    <ul>
+    <% @review.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for([@review.pizza, @review], url: pizza_reviews_path) do |f| %>
+  <%= f.hidden_field :pizza_id%>
+   <section>
+        <%= f.label :rating%>
+        <%= f.number_field :rating, within: 1...6%>
+   </section> 
+   
+   <section>
+        <%= f.label :content, "Review:"%> <br>
+        <%= f.text_area(:content, max: 250, min: 2) %>
+   </section> 
+
+   <section>
+        <%= f.submit "Submit Review"%>
+   </section>
+<% end %>
