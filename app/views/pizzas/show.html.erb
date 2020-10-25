@@ -8,7 +8,7 @@
     <section>
         <h3><%= review.user.name %></h3>
         <h4>Rating: <%= review.rating %> star(s)</h4>
-        <p><%= link_to review.content, review_path(review) %></p>
+        <p><%= review.content %></p><p><%= link_to 'more...', review_path(review) %></p>
     </section>
 <% end %>
 

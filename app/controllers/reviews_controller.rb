@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
-    before_action :require_login, :find_review
+    before_action :require_login
     skip_before_action :require_login, only: [:index, :show]
+    before_action :find_review, only: [:show, :edit, :update, :destroy]
 
     def index
         if params[:pizza_id] && @pizza = Pizza.find_by(id: params[:pizza_id])
@@ -37,9 +38,20 @@ class ReviewsController < ApplicationController
     end
 
     def update
+        if current_user == @review.user
+            @review.update(review_params)
+            flash[:success] = "Your review has been updated."
+            redirect_to review_path(@review)
+        else
+            flash[:error] = "You must be logged in to edit review."
+            redirect_to pizza_path(@review.pizza)
+        end
     end
 
-    def delete
+    def destroy
+        @review.destroy
+        flash[:success] = "Your review has been trashed."
+        redirect_to pizzas_path
     end
 
     private

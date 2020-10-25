@@ -12,8 +12,8 @@ Rails.application.routes.draw do
         resources :reviews, shallow: true
   end
   
-  resources :reviews, only: [:edit, :update, :destroy]
-  
+  resources :reviews, only: [:edit, :update, :delete]
+
   get 'signup', to: 'users#new'
   
   get 'login', to:'sessions#new'
