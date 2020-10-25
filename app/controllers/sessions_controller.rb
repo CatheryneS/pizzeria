@@ -6,7 +6,8 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to user_path(user)
+      flash[:success] = "Welcome back!"
+      redirect_to root_path
     else
       flash[:error] = "Hmm..no user found. Please try again or signup."
       redirect_to '/login'
@@ -24,6 +25,7 @@ class SessionsController < ApplicationController
     end
 
     session[:user_id] = @user.id
+    flash[:success] = "Welcome!"
     render 'welcome/index'
   end
 
