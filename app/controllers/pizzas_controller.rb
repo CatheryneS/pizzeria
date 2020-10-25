@@ -1,7 +1,7 @@
 class PizzasController < ApplicationController
   before_action :require_login
   skip_before_action :require_login, only: [:index, :show]
-  before_action :find_pizza, only: [:show, :edit, :update]
+  before_action :find_pizza, only: [:show, :edit, :update, :destroy]
   
   def index
     @pizzas = Pizza.admin_pizzas 
@@ -41,7 +41,10 @@ class PizzasController < ApplicationController
     end 
   end
 
-  def delete
+  def destroy
+    @pizza.destroy
+    flash[:success] = "Your pizza has been trashed."
+    redirect_to user_path(current_user)
   end
 
   private

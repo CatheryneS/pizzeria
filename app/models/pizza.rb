@@ -2,7 +2,7 @@ class Pizza < ApplicationRecord
     belongs_to :user
     has_many :order_pizzas
     has_many :orders, through: :order_pizzas
-    has_many :reviews
+    has_many :reviews, dependent: :destroy
 
     validates :description, presence: true
     validates :name, presence: true, uniqueness: true
