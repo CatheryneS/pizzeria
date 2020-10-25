@@ -3,7 +3,7 @@
 <br>
 <% current_user.orders.each do |order| %>
     <section>
-       <h3><%= order.created_at.strftime("Placed on %B %d, %Y at %k:%M %p") %></h3>
+       <h3><%= order.created_at.strftime("Placed on %B %d, %Y at %-I:%M %p") %></h3>
        <h3>Total pizzas ordered: <%= order.pizzas.count%></h3> 
         <%= link_to 'Order details', order_path(order) %>
     </section>

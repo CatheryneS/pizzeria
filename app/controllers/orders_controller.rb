@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
     before_action :require_login
+    before_action :find_order, only: [:show, :edit, :update, :destroy]
 
     def new
         @order = Order.new
@@ -8,7 +9,7 @@ class OrdersController < ApplicationController
 
     def create 
         @order = current_user.orders.build(order_params)
-        
+
         if @order.valid?
             @order.save
             flash[:success] = "Your order has been placed."
@@ -34,6 +35,10 @@ class OrdersController < ApplicationController
 
     def order_params
         params.require(:order).permit(:note, pizza_ids: [], pizzas_attributes: [:name, :description, :user_id])
+    end
+
+    def find_order
+        @order = Order.find_by(id: params[:id])
     end
 
 end
