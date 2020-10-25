@@ -40,7 +40,11 @@ class PizzasController < ApplicationController
   end
 
   def find_pizza
-    @pizza = Pizza.find(params[:id])
+    @pizza = Pizza.find_by(id: params[:id])
+    if @pizza.nil?
+      flash[:error] = "Sorry we couldn't find that pizza."
+      redirect_to pizzas_path 
+    end
   end
 
   def require_login
