@@ -1,9 +1,6 @@
 <h1>Homepage</h1>
-<% if session[:user_id] %>
-  <h1><%= @user.name %></h1>
-  <h2>Email: <%= @user.email %></h2>
-  <h2>Facebook UID: <%= @user.uid %></h2>
-  <img src="<%= @user.image %>">
-<% else %>
+<% if session[:user_id].nil? %>
   <%= link_to('Log in with Facebook!', '/auth/facebook') %>
 <% end %>
+
+<%= link_to 'Pizzas', pizzas_path %>
