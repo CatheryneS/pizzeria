@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
     has_many :pizzas #pizzas created by the user
     has_many :orders #orders placed
+    has_many :reviews
 end
