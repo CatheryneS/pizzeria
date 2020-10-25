@@ -12,10 +12,12 @@
   </div>
 <% end %>
 
-<%= form_for([@pizza, @review]) do |f| %>
+<h1>Leave a review</h1>
+<%= form_for([@review.pizza, @review], url: pizza_reviews_path) do |f| %>
+  <%= f.hidden_field :pizza_id%>
    <section>
         <%= f.label :rating%>
-        <%= f.number_field :rating, max: 5%>
+        <%= f.number_field :rating, within: 1...6%>
    </section> 
    
    <section>

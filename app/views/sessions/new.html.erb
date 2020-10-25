@@ -1,8 +1,5 @@
 <h1>Login</h1>
 
-<% if flash[:error] %>
-    <section class='error'><%= flash[:error]%></section>
-<% end %>
 <%= form_with do %>
     <%= label_tag :email %>
     <%= email_field_tag :email%>

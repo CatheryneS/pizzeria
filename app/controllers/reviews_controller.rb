@@ -13,12 +13,20 @@ class ReviewsController < ApplicationController
         if params[:pizza_id] && @pizza = Pizza.find_by(id: params[:pizza_id])
             @review = @pizza.reviews.build
         else
-            @review = Review.new
+            flash[:error] = "Login to leave a review."
+            redirect_to pizza_paths(params[:pizza_id])
         end
     end
 
     def create
-        byebug
+        @review = current_user.reviews.build(review_params)
+        if @review.valid?
+            @review.save
+            flash[:success] = "Review created!"
+            redirect_to pizza_path(params[:pizza_id])
+        else
+            render 'reviews/new'
+        end
     end
 
     def show
@@ -31,5 +39,11 @@ class ReviewsController < ApplicationController
     end
 
     def delete
+    end
+
+    private
+
+    def review_params
+        params.require(:review).permit(:rating, :content, :pizza_id)
     end
 end

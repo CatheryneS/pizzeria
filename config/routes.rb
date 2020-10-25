@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   get 'welcome/index'
-
+  resources :pizzas do
+      resources :reviews
+  end
+  
   resources :users, except: [:new] do
     resources :orders, only: [:index]
   end
@@ -15,9 +18,7 @@ Rails.application.routes.draw do
 
   get '/auth/facebook/callback' => 'sessions#create_facebook'
 
-  resources :pizzas do
-    resources :reviews
-  end
+  
 
   root 'welcome#index'
 
