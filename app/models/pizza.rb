@@ -6,4 +6,6 @@ class Pizza < ApplicationRecord
 
     validates :description, presence: true
     validates :name, presence: true, uniqueness: true
+
+    scope :admin_pizzas, -> {where(:user_id => 1)}
 end

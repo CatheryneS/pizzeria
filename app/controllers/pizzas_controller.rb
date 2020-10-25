@@ -4,7 +4,7 @@ class PizzasController < ApplicationController
   before_action :find_pizza, only: [:show, :edit, :update]
   
   def index
-    @pizzas = Pizza.all 
+    @pizzas = Pizza.admin_pizzas 
     if logged_in?
       @user = current_user
     end
@@ -27,7 +27,18 @@ class PizzasController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
   def update
+    if current_user == @pizza.user
+      @pizza.update(pizza_params)
+      flash[:success] = "Your pizza has been updated."
+      redirect_to pizza_path(@pizza)
+    else
+      flash[:error] = "You can only update your pizza creations."
+      redirect_to pizzas_path
+    end 
   end
 
   def delete
