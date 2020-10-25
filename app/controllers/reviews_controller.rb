@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-    before_action :require_login
+    before_action :require_login, :find_review
     skip_before_action :require_login, only: [:index, :show]
 
     def index
@@ -31,7 +31,6 @@ class ReviewsController < ApplicationController
     end
 
     def show
-        byebug
     end
 
     def edit
@@ -50,6 +49,6 @@ class ReviewsController < ApplicationController
     end
 
     def find_review
-        @review 
+        @review = Review.find_by(id: params[:id])
     end
 end
