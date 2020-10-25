@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:index]
   end
   
-  resources :orders, only: [:new, :create, :edit, :update, :delete] 
+  resources :orders, except: [:index]
 
   resources :pizzas do
         resources :reviews, shallow: true

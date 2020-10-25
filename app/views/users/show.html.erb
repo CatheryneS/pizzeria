@@ -11,8 +11,12 @@
 <h3>Total orders: <%= @user.orders.count %> </h3>
 <% if @user.orders.count == 0 %>
     <%= link_to 'ORDER NOW', new_order_path %>
+<%else%>
+    <%= link_to 'View Orders', user_orders_path(current_user) %> 
 <% end %>
+
 <br>
+
 <h3>Your creations</h3>
 <% @user.pizzas.each do |p|%>
     <section>

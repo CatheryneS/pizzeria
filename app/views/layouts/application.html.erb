@@ -18,6 +18,7 @@
       <% if logged_in?%>
         <%= link_to 'Order Now',  new_order_path %> |
         <%= link_to 'Account', user_path(current_user) %> |
+        <%= link_to 'Orders', user_orders_path(current_user) %> |
         <%= link_to 'Logout', logout_path, method: :delete %>
       <% else %>
         <%= link_to 'Sign Up', signup_path %> |

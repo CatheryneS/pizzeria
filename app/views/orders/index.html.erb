@@ -1,9 +1,10 @@
 <h1><%= current_user.name%>'s Orders</h1>
-
+<%= link_to 'Back to Account', user_path(current_user) %>
+<br>
 <% current_user.orders.each do |order| %>
     <section>
        <h3><%= order.created_at.strftime("Placed on %B %d, %Y at %k:%M %p") %></h3>
        <h3>Total pizzas ordered: <%= order.pizzas.count%></h3> 
-        Notes: <%= order.note %>
+        <%= link_to 'Order details', order_path(order) %>
     </section>
 <% end %>
