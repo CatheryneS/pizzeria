@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_action :require_login
-    before_action :find_user, only: [:show, :edit, :update, :delete]
+    before_action :find_user, only: [:show, :edit, :update, :destroy]
     skip_before_action :require_login, only: [:new, :create]
 
     def new
@@ -11,6 +11,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.valid?
             @user.save
+            flash[:success] = "Your new account has been made. Please login."
             redirect_to login_path
         else
             render :new
@@ -34,7 +35,7 @@ class UsersController < ApplicationController
         end
     end
 
-    def delete
+    def destroy
         @user.destroy
         flash[:success] = "Your account has been terminated."
         redirect_to root_path
