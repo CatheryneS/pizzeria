@@ -1,3 +1,10 @@
 <h1><%= @pizza.name %></h1>
 <p><%= @pizza.description %></p>
 
+<% @pizza.reviews.each do |review| %>
+    <section>
+        <%= review.user.name %>
+        <%= review.rating %>
+        <%= review.content %>
+    </section>
+<% end %>

@@ -14,7 +14,7 @@
     <h2>Your Creations </h2>
     <% @user.pizzas.each do |pizza| %>
         <section>
-        <h3><%= pizza.name%></h3>
+         <h3><%= link_to pizza.name, pizza_path(pizza) %></h3>
         <p><%= pizza.description%></p>
         </section>
     <% end %>
