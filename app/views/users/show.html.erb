@@ -1,1 +1,26 @@
 <h1>Hi, <%= @user.name %>.</h1>
+
+<h3>Total orders: <%= @user.orders.count %> </h3>
+<% if @user.orders.count == 0 %>
+    <%= link_to 'ORDER NOW', new_order_path %>
+<% end %>
+<br>
+<h3>Your creations</h3>
+<% @user.pizzas.each do |p|%>
+    <section>
+        <%= p.name %> | <%= link_to 'edit', edit_user_path(p) %> | <%= link_to 'delete', pizza_path, method: :delete %>
+    </section>
+<% end %>
+
+<h3>Pizzas your've reviewed</h3>
+<%if !@user.reviews.nil?%>
+    <% @user.reviews.each do |r| %>
+        <section>
+        <%= r.pizza.name%>
+        </section>
+    <% end %>
+<% else %>
+    <%= link_to 'Review a pizza', pizzas_path %>
+<% end %>
+
+<%= link_to 'Edit Account', edit_user_path %>

@@ -1,15 +1,17 @@
 Rails.application.routes.draw do
   get 'welcome/index'
-  resources :pizzas do
-      resources :reviews
-  end
+  
   
   resources :users, except: [:new] do
     resources :orders, only: [:index]
   end
   
-  resources :orders, expect: [:index] 
+  resources :orders, only: [:new, :create, :edit, :update, :delete] 
 
+  resources :pizzas do
+        resources :reviews, shallow: true
+  end
+  
   get 'signup', to: 'users#new'
   
   get 'login', to:'sessions#new'
@@ -21,10 +23,4 @@ Rails.application.routes.draw do
   
 
   root 'welcome#index'
-
-  # <#---Nested Routes--->
-  # '/users/:id/orders' #shows users orders
-  # '/users/:id/pizzas' #shows pizzas created by or once ordered by the pizzas
-  # '/pizzas/:id/orders' #shows orders that contain pizzas
-  # '/pizzas/:id/users' #shows users that ordered the pizza
 end
