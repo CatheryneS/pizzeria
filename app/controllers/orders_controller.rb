@@ -3,11 +3,12 @@ class OrdersController < ApplicationController
 
     def new
         @order = Order.new
+        3.times{@order.pizzas.build}
     end
 
     def create 
         @order = current_user.orders.build(order_params)
-
+        byebug
         if @order.valid?
             @order.save
             redirect_to user_orders_path(@order.user_id)
@@ -19,7 +20,7 @@ class OrdersController < ApplicationController
     private
 
     def order_params
-        params.require(:order).permit(:note, pizza_ids: [])
+        params.require(:order).permit(:note, pizza_ids: [], pizzas_attributes: [:name, :description, :user_id])
     end
 
 end
