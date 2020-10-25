@@ -3,9 +3,6 @@ class UsersController < ApplicationController
     before_action :find_user, only: [:show, :edit, :update, :delete]
     skip_before_action :require_login, only: [:new, :create]
 
-    def index
-    end
-
     def new
         @user = User.new
     end
@@ -27,6 +24,14 @@ class UsersController < ApplicationController
     end
 
     def update
+        if logged_in?
+            @user.update(user_params)
+            flash[:success] = "Your account has been updated."
+            redirect_to user_path(@user)
+        else
+            flash[:error] = "You must be logged in to access account."
+            redirect_to root_path
+        end
     end
 
     def delete

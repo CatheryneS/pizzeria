@@ -29,16 +29,18 @@
         <%= f.telephone_field :phone %>
     </section>    
 
-    <section>
-        <%= f.label :password %>
-        <%= f.password_field :password %>
-    </section>
+    <% if !logged_in?%>
+      <section>
+          <%= f.label :password %>
+          <%= f.password_field :password %>
+      </section>
 
-    <section>
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation %>
-    </section>
-        
+      <section>
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation %>
+      </section>
+    <% end %>
+    
     <section>
         <%= f.submit %>
     </section>

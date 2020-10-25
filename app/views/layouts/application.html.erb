@@ -10,6 +10,7 @@
   
     <style>
         .error { color: red; }
+        .success {color: green;}
     </style>
   </head>
     <div>
@@ -23,6 +24,8 @@
   <body>
   <% if flash[:error] %>
     <section class='error'><%= flash[:error]%></section>
+  <% else %>
+    <section class='success'><%= flash[:success]%></section>
   <% end %>
     <%= yield %>
   </body>

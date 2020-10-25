@@ -1,5 +1,13 @@
 <h1>Hi, <%= @user.name %>.</h1>
 
+<section>
+    <% if @user.image %>
+        <%= image_tag(@user.image)%>
+    <% end %>
+</section>
+
+<br>
+
 <h3>Total orders: <%= @user.orders.count %> </h3>
 <% if @user.orders.count == 0 %>
     <%= link_to 'ORDER NOW', new_order_path %>
@@ -8,11 +16,11 @@
 <h3>Your creations</h3>
 <% @user.pizzas.each do |p|%>
     <section>
-        <%= p.name %> | <%= link_to 'edit', edit_user_path(p) %> | <%= link_to 'delete', pizza_path, method: :delete %>
+        <%= p.name %> | <%= link_to 'edit', edit_pizza_path(p) %> | <%= link_to 'delete', pizza_path, method: :delete, confirm: "Are you sure you want to delete your masterpiece?" %>
     </section>
 <% end %>
 
-<h3>Pizzas your've reviewed</h3>
+<h3>Pizzas you've reviewed</h3>
 <%if !@user.reviews.nil?%>
     <% @user.reviews.each do |r| %>
         <section>
