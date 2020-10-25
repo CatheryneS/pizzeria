@@ -14,7 +14,7 @@
     </style>
   </head>
     <div>
-      <%= link_to 'Home', root_path %> |
+      <%= link_to 'Home', root_path %> | <%= link_to 'Pizzas', pizzas_path %> |
       <% if logged_in?%>
         <%= link_to 'Order Now',  new_order_path %> |
         <%= link_to 'Account', user_path(current_user) %> |

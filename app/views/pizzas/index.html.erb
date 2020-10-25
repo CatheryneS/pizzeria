@@ -10,11 +10,12 @@
 <br>
 <% if logged_in? %>
     <h2>Your Creations </h2>
+    <h3><%= link_to 'Create your own', new_order_path %></h3>
     <% @user.pizzas.each do |pizza| %>
         <section>
          <h3><%= link_to pizza.name, pizza_path(pizza) %></h3>
         <p><%= pizza.description%></p>
         </section>
     <% end %>
-    <h3><%= link_to 'Create your own', new_order_path %></h3>
+    
 <% end %>

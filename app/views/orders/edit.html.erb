@@ -1,0 +1,7 @@
+<h1>Edit Order Notes</h1>
+<%= form_with model: @order do |f|%>
+ <%= f.label 'Special request(s)'%> <br>
+ <%= f.text_area :note %> <br> 
+
+ <%= f.submit%>
+<% end %>
