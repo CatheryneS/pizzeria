@@ -4,7 +4,11 @@
 <% @pizza.reviews.each do |review| %>
     <section>
         <h3><%= review.user.name %></h3>
-        <h4>Rating: <%= review.rating %></h4>
+        <h4>Rating: <%= review.rating %> star(s)</h4>
         <h4><%= review.content %></h4>
     </section>
 <% end %>
+
+<br>
+
+<%= link_to 'Back to pizzas', pizzas_path %>
