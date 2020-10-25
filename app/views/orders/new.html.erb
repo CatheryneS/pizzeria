@@ -7,6 +7,8 @@
  <%= f.text_area :note %> <br> 
 
  <h2>Create your own</h2>
+ <p>You must name your pizza and tell us what you want on it. We do not offer cauliflower crust.</p>
+
  <%= f.fields_for :pizzas do |pizza|%>
     <h3>New Pizza</h3>
     <%= pizza.label :name, "Name Your Pizza" %> <br>

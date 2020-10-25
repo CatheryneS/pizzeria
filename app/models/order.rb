@@ -2,7 +2,6 @@ class Order < ApplicationRecord
     belongs_to :user
     has_many :order_pizzas
     has_many :pizzas, through: :order_pizzas
-    accepts_nested_attributes_for :pizzas, reject_if: proc { |attr| attr[:name].blank? }
 
     # handels adding pizzas to order through order_pizzas join table
     def pizza_ids=(pizza_ids)

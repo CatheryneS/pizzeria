@@ -8,13 +8,26 @@ class OrdersController < ApplicationController
 
     def create 
         @order = current_user.orders.build(order_params)
-        byebug
+        
         if @order.valid?
             @order.save
+            flash[:success] = "Your order has been placed."
             redirect_to user_orders_path(@order.user_id)
         else
             render :new
         end
+    end
+
+    def show
+    end
+
+    def edit
+    end
+
+    def update
+    end
+
+    def destroy
     end
 
     private
