@@ -35,6 +35,9 @@ class UsersController < ApplicationController
     end
 
     def delete
+        @user.destroy
+        flash[:success] = "Your account has been terminated."
+        redirect_to root_path
     end
 
     private
