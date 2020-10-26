@@ -5,6 +5,8 @@
 <h4>Rating: <%= @review.rating %> stars </h4>
 <p><%= @review.content %></p>
 
+<% byebug %>
+
 <%= link_to 'Back to pizza', pizza_path(@review.pizza) %> | <%= link_to 'Back to pizzas', pizzas_path %> 
 
 <% if current_user == @review.user %>
