@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-    before_action :require_login
     before_action :find_order, only: [:show, :edit, :update, :destroy]
 
     def new

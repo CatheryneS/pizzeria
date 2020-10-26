@@ -1,5 +1,4 @@
 class PizzasController < ApplicationController
-  before_action :require_login
   skip_before_action :require_login, only: [:index, :show]
   before_action :find_pizza, only: [:show, :edit, :update, :destroy]
   

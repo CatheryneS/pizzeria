@@ -1,6 +1,1 @@
 <h1>Homepage</h1>
-<% if session[:user_id].nil? %>
-  <%= link_to('Log in with Facebook!', '/auth/facebook') %>
-<% end %>
-
-<%= link_to 'Pizzas', pizzas_path %>

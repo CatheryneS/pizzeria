@@ -1,9 +1,15 @@
 <h1>Order</h1>
 <%= form_with model: @order do |f|%>
- <%= f.label 'Select pizza(s)'%> <br>
- <%= f.collection_check_boxes(:pizza_ids, Pizza.admin_pizzas, :id, :name, {}, {multiple: true})%> <br>
-
- <br><%= f.label 'Special request(s)'%> <br>
+ <h3><%= f.label 'Select pizza(s) from our collection'%></h3>
+   <section>
+   <%= f.collection_check_boxes(:pizza_ids, Pizza.admin_pizzas, :id, :name, {}, {multiple: true})%> <br>
+   </section>
+<br/>
+ <h3><%= f.label 'Select pizza(s) from your collection'%> </h3>
+   <section>
+   <%= f.collection_check_boxes(:pizza_ids, current_user.pizzas, :id, :name, {}, {multiple: true})%> <br>
+   </section>
+ <br><h3><%= f.label 'Special request(s)'%></h3>
  <%= f.text_area :note %> <br> 
 
  <h2>Create your own</h2>
