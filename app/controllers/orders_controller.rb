@@ -11,7 +11,6 @@ class OrdersController < ApplicationController
         @order.status = "In Progress"
         if @order.valid?
             @order.save
-byebug
             flash[:success] = "Your order has been placed."
             redirect_to user_orders_path(@order.user_id)
         else
