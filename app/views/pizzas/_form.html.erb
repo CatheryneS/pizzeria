@@ -1,3 +1,5 @@
+<%= render partial: "layouts/errors", locals: {object: @pizza} %>
+
 <%= form_with model: @pizza do |f| %>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.label :name %> <br>

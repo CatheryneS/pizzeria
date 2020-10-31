@@ -1,4 +1,6 @@
 <h1>Order</h1>
+<%= render partial: "layouts/errors", locals: {object: @order} %>
+
 <%= form_with model: @order do |f|%>
  <h3><%= f.label 'Select pizza(s) from our collection'%></h3>
    <section>
@@ -14,7 +16,7 @@
 
  <h2>Create your own</h2>
  <p>You must name your pizza and tell us what you want on it. We do not offer cauliflower crust.</p>
-
+ 
  <%= f.fields_for :pizzas do |pizza|%>
     <h3>New Pizza</h3>
     <%= pizza.label :name, "Name Your Pizza" %> <br>
