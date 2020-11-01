@@ -14,8 +14,8 @@ class OrdersController < ApplicationController
             flash[:success] = "Your order has been placed."
             redirect_to user_orders_path(@order.user_id)
         else
+            3.times{@order.pizzas.build}
             render :new
-            byebug
         end
     end
 
