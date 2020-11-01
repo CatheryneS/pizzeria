@@ -1,7 +1,8 @@
 <h1>Order</h1>
+
 <%= render partial: "layouts/errors", locals: {object: @order} %>
 
-<%= form_with model: @order do |f|%>
+<%= form_for @order do |f|%>
  <h3><%= f.label 'Select pizza(s) from our collection'%></h3>
    <section>
    <%= f.collection_check_boxes(:pizza_ids, Pizza.admin_pizzas, :id, :name, {}, {multiple: true})%> <br>

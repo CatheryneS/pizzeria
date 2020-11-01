@@ -2,6 +2,7 @@ class Order < ApplicationRecord
     belongs_to :user
     has_many :order_pizzas
     has_many :pizzas, through: :order_pizzas
+    validate :pizzas_in_order
 
     # handels adding pizzas to order through order_pizzas join table
     def pizza_ids=(pizza_ids)
@@ -15,4 +16,10 @@ class Order < ApplicationRecord
             self.pizzas << Pizza.find_or_create_by(attr) unless attr[:name].empty? && attr[:description].empty?
         end
      end
+
+    def pizzas_in_order
+        if self.pizzas.empty?
+            errors.add(:order, "must have at least one pizza added.")
+        end
+    end
 end

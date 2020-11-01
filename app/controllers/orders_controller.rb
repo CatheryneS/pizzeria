@@ -15,6 +15,7 @@ class OrdersController < ApplicationController
             redirect_to user_orders_path(@order.user_id)
         else
             render :new
+            byebug
         end
     end
 
