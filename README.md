@@ -3,7 +3,7 @@ Personal Pan Delights is a Ruby on Rails appication that allows a customer to vi
 
 ## Installation
 Clone this repo. 
-Run 'bundle install', 'rake db:migrate' , and 'rails s'
+Run 'bundle install', 'rails db:migrate' , 'rails db:seed', and 'rails s'
 
 ## Usage
 All users are able to view thier own pizzas and the pizzas that have been pre-loaded into the app. 
