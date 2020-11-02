@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_24_223701) do
+ActiveRecord::Schema.define(version: 2020_11_02_044218) do
 
   create_table "order_pizzas", force: :cascade do |t|
     t.integer "order_id"
@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(version: 2020_10_24_223701) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "pizza_toppings", force: :cascade do |t|
+    t.integer "pizza_id"
+    t.integer "topping_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pizza_id"], name: "index_pizza_toppings_on_pizza_id"
+    t.index ["topping_id"], name: "index_pizza_toppings_on_topping_id"
   end
 
   create_table "pizzas", force: :cascade do |t|
@@ -50,6 +59,12 @@ ActiveRecord::Schema.define(version: 2020_10_24_223701) do
     t.datetime "updated_at", null: false
     t.index ["pizza_id"], name: "index_reviews_on_pizza_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "toppings", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

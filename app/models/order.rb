@@ -15,7 +15,7 @@ class Order < ApplicationRecord
         attributes.values.each do |attr|
             self.pizzas << Pizza.find_or_create_by(attr) unless attr[:name].empty? && attr[:description].empty?
         end
-     end
+    end
 
     def pizzas_in_order
         if self.pizzas.empty?

@@ -3,10 +3,11 @@ class OrdersController < ApplicationController
 
     def new
         @order = Order.new
-        3.times{@order.pizzas.build}
+        3.times{@order.pizzas.build.toppings.build}
     end
 
     def create 
+        byebug
         @order = current_user.orders.build(order_params)
         @order.status = "In Progress"
         if @order.valid?

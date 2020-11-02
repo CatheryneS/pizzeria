@@ -18,14 +18,18 @@
  <h2>Create your own</h2>
  <p>You must name your pizza and tell us what you want on it. We do not offer cauliflower crust.</p>
  
- <%= f.fields_for :pizzas do |pizza|%>
+ <%= f.fields_for :pizzas do |pizza| %>
     <h3>New Pizza</h3>
     <%= pizza.label :name, "Name Your Pizza" %> <br>
     <%= pizza.text_field :name %> <br> <br>
     <%= pizza.label :description %> <br>
     <%= pizza.text_area :description %> <br>
     <%= pizza.hidden_field :user_id, value: current_user.id %>
+      <br>
+      <%= pizza.fields_for :topping do |pt|%>
+        <%= pt.label "Toppings"%>
+        <%= pt.collection_check_boxes :topping_id, Topping.all, :id, :name%>
+      <% end %>
  <% end %>
-
  <%= f.submit%>
 <% end %>

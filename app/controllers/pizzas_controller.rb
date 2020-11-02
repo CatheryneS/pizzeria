@@ -11,6 +11,8 @@ class PizzasController < ApplicationController
 
   def new
     @pizza = Pizza.new
+    byebug
+    3.times {@pizza.toppings.build}
   end
 
   def create
@@ -58,9 +60,5 @@ class PizzasController < ApplicationController
       flash[:error] = "Sorry we couldn't find that pizza."
       redirect_to pizzas_path 
     end
-  end
-
-  def require_login
-    redirect_to login_path unless session.include? :user_id
   end
 end
