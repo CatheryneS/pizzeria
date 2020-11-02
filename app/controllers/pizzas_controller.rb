@@ -59,8 +59,4 @@ class PizzasController < ApplicationController
       redirect_to pizzas_path 
     end
   end
-
-  def require_login
-    redirect_to login_path unless session.include? :user_id
-  end
 end
