@@ -5,10 +5,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:email])
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      flash[:success] = "Welcome back!"
+    @user = User.find_by(email: params[:email])
+    if @user && @user.authenticate(params[:password])
+      set_session
       redirect_to root_path
     else
       flash[:error] = "Hmm..no user found. Please try again or signup."
@@ -26,8 +25,7 @@ class SessionsController < ApplicationController
       u.save
     end
 
-    session[:user_id] = @user.id
-    flash[:success] = "Welcome!"
+    set_session
     render 'welcome/index'
   end
 
@@ -42,4 +40,8 @@ class SessionsController < ApplicationController
     request.env['omniauth.auth']
   end
 
+  def set_session
+    session[:user_id] = @user.id
+    flash[:success] = "Welcome!"
+  end
 end
