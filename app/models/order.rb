@@ -11,9 +11,10 @@ class Order < ApplicationRecord
        end
     end
 
+    # handles building new pizzas
     def pizzas_attributes=(attributes)
         attributes.values.each do |attr|
-            self.pizzas << Pizza.find_or_create_by(attr) unless attr[:name].empty? && attr[:description].empty?
+            self.pizzas << Pizza.find_or_create_by(attr) unless attr[:name].empty? || attr[:description].empty?
         end
      end
 
