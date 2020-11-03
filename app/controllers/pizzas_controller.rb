@@ -3,7 +3,7 @@ class PizzasController < ApplicationController
   before_action :find_pizza, only: [:show, :edit, :update, :destroy]
   
   def index
-    @pizzas = Pizza.admin_pizzas 
+    @pizzas = Pizza.query(params[:query])
     if logged_in?
       @user = current_user
     end
