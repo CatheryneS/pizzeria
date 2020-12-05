@@ -1,5 +1,6 @@
-<h1><%= @pizza.name %></h1>
-<p><%= @pizza.description %></p>
+<section class="container">
+<h1 class="pizza-name"><%= @pizza.name %></h1>
+<p class="pizza-description"><%= @pizza.description %></p>
 
 <h4><%= link_to 'Leave a review', new_pizza_review_path(@pizza, @review) %></h4>
 <br/>
@@ -15,3 +16,4 @@
 <br>
 
 <%= link_to 'Back to pizzas', pizzas_path %>
+</section>

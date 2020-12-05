@@ -5,7 +5,7 @@
 //     padding: 2px 16px;  
 // }
 .container h1 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Playfair Display', serif;
     font-size: 7vh;
 }
 
@@ -24,16 +24,24 @@
 }
 
 .pizza-name {
-    padding: 10px;
-    padding-bottom: 2px;
+    padding-bottom: 2vmin;
+    padding-top: 2vmin;
+    padding-left: 1vmin;
     color: #9d5981;
+    font-family: 'Playfair Display', serif;
 }
 
-.pizza-name:hover {
+#link:hover {
     color: #debea0;
 }
 
 .pizza-description {
-    padding-left: 10px;
-    padding-bottom: 10px;
+    padding-left: 1vmin;
+    padding-right: 1vmin;
+    padding-bottom: 1vmin;
+    font-family: 'Poppins', sans-serif;
+}
+
+.contanier {
+    padding-block: 1vmax;
 }

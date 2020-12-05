@@ -3,7 +3,7 @@
     <h2>Our Creations </h2>
 <% @pizzas.each do |pizza| %>
     <section class="pizza-card">
-        <h3><%= link_to pizza.name, pizza_path(pizza), class:"pizza-name" %></h3>
+        <h3><%= link_to pizza.name, pizza_path(pizza), class:"pizza-name", id:"link"%></h3>
         <p class="pizza-description"><%= pizza.description%></p>
     </section>
 <% end %>
