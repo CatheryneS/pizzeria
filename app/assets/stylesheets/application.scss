@@ -18,21 +18,21 @@
 
  .nav-bar {
      background-color: #debea0;
-     padding-top: 1vh;
-     padding-bottom: 5vh;
+     padding-top: 0.5vh;
+     padding-bottom: 4vh;
  }
 
  .nav-bar a{
      color: rgb(255, 255, 255);
      float: right;
-     font-size: 22px;
+     font-size: 2.5vh;
      font-family: 'Playfair Display', serif;
-     padding-inline-start: 2vw;
+     padding-inline-start: 1.4vw;
      padding-bottom: 3vh;
  }
 
  .header{ 
-     padding: 12px;
+     padding: 0.5vmin;
      text-align: center;
      background: #9d5981;
  }
@@ -40,14 +40,9 @@
  .header h1{
      color: white;
      font-family: 'Playfair Display', serif;
-     font-size: 88px;
+     font-size: 5vw;
  }
  .header p{
     font-family: 'Poppins', sans-serif;
-    font-size: 25px;
+    font-size: 3vw;
  }
-
- section {
-     margin-left: 15px;
- }
-
