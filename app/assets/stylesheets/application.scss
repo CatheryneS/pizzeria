@@ -18,15 +18,17 @@
 
  .nav-bar {
      background-color: #debea0;
-     padding: 10px;
+     padding-top: 1vh;
+     padding-bottom: 5vh;
  }
 
  .nav-bar a{
      color: rgb(255, 255, 255);
-     display: inline;
+     float: right;
      font-size: 22px;
      font-family: 'Playfair Display', serif;
-     padding-left: 10px;
+     padding-inline-start: 2vw;
+     padding-bottom: 3vh;
  }
 
  .header{ 
@@ -42,7 +44,7 @@
  }
  .header p{
     font-family: 'Poppins', sans-serif;
-     font-size: 25px;
+    font-size: 25px;
  }
 
  section {
