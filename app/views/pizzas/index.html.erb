@@ -2,20 +2,20 @@
     <h1>Pizzas</h1>
     <h2>Our Creations </h2>
 <% @pizzas.each do |pizza| %>
-    <section class="pizza-card">
-        <h3><%= link_to pizza.name, pizza_path(pizza), class:"pizza-name", id:"link"%></h3>
-        <p class="pizza-description"><%= pizza.description%></p>
+    <section class="card">
+        <h3><%= link_to pizza.name, pizza_path(pizza), class:"name-link"%></h3>
+        <p class="content"><%= pizza.description%></p>
     </section>
 <% end %>
 
  <br>
 <% if logged_in? %>
     <h2>Your Creations </h2>
-    <h3><%= link_to 'Create your own', new_order_path %></h3>
+    <h3><%= link_to 'Create Your Own', new_order_path, class:"btn" %></h3>
     <% @user.pizzas.each do |pizza| %>
-        <section>
-         <h3><%= link_to pizza.name, pizza_path(pizza), class:"pizza-name" %></h3>
-        <p class="pizza-description"><%= pizza.description%></p>
+        <section class="card">
+         <h3><%= link_to pizza.name, pizza_path(pizza), class:"name-link" %></h3>
+        <p class="pcontent"><%= pizza.description%></p>
         </section>
     <% end %>
     

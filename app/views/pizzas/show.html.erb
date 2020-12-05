@@ -1,19 +1,23 @@
 <section class="container">
-<h1 class="pizza-name"><%= @pizza.name %></h1>
-<p class="pizza-description"><%= @pizza.description %></p>
+<h1 class="name"><%= @pizza.name %></h1>
+<p class="content"><%= @pizza.description %></p>
 
-<h4><%= link_to 'Leave a review', new_pizza_review_path(@pizza, @review) %></h4>
-<br/>
+<h4><%= link_to 'Leave a review', new_pizza_review_path(@pizza, @review), class:"btn", id:"link-review" %></h4>
+<br><br>
+
 <h2>Reviews</h2>
 <% @pizza.reviews.each do |review| %>
-    <section>
-        <h3><%= review.user.name %></h3>
-        <h4>Rating: <%= review.rating %> star(s)</h4>
-        <p><%= review.content %></p><p><%= link_to 'more...', review_path(review) %></p>
+    <section class="card">
+        <h3 class="name"><%= review.user.name %></h3>
+        <h4 class="content">Rating: <%= review.rating %> star(s)</h4>
+        <p class="content"><%= review.content %></p>
     </section>
 <% end %>
 
 <br>
 
-<%= link_to 'Back to pizzas', pizzas_path %>
+<%= link_to 'Back to pizzas', pizzas_path, class:"btn"%> 
+<% if @pizza.user == current_user%>
+<%= link_to 'Edit pizza', edit_pizza_path(@pizza), class:"btn"%>
+<% end %>
 </section>
