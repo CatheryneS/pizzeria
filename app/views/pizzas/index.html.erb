@@ -1,21 +1,23 @@
-<h1>Pizzas</h1>
-<br>
-<h2>Our Creations </h2>
+<section class="container">
+    <h1>Pizzas</h1>
+    <h2>Our Creations </h2>
 <% @pizzas.each do |pizza| %>
-    <section>
-        <h3><%= link_to pizza.name, pizza_path(pizza) %></h3>
-        <p><%= pizza.description%></p>
+    <section class="pizza-card">
+        <h3><%= link_to pizza.name, pizza_path(pizza), class:"pizza-name" %></h3>
+        <p class="pizza-description"><%= pizza.description%></p>
     </section>
 <% end %>
-<br>
+
+ <br>
 <% if logged_in? %>
     <h2>Your Creations </h2>
     <h3><%= link_to 'Create your own', new_order_path %></h3>
     <% @user.pizzas.each do |pizza| %>
         <section>
-         <h3><%= link_to pizza.name, pizza_path(pizza) %></h3>
-        <p><%= pizza.description%></p>
+         <h3><%= link_to pizza.name, pizza_path(pizza), class:"pizza-name" %></h3>
+        <p class="pizza-description"><%= pizza.description%></p>
         </section>
     <% end %>
     
 <% end %>
+</section>

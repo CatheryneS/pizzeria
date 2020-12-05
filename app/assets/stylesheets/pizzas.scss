@@ -1,6 +1,39 @@
 // Place all the styles related to the Pizzas controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-h1 {
-    margin-left: 20px;
+// .pizza-container {
+//     padding: 2px 16px;  
+// }
+.container h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 7vh;
+}
+
+.container h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3vh;
+}
+.pizza-card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-style: groove;
+    border: #9d5981;
+}
+.pizza-card:hover {
+    box-shadow: 0 8px 16px 0 #debea0;
+}
+
+.pizza-name {
+    padding: 10px;
+    padding-bottom: 2px;
+    color: #9d5981;
+}
+
+.pizza-name:hover {
+    color: #debea0;
+}
+
+.pizza-description {
+    padding-left: 10px;
+    padding-bottom: 10px;
 }
