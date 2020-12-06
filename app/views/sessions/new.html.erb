@@ -1,11 +1,18 @@
+<section class="container">
 <h1>Login</h1>
-
+<br>
 <%= form_with do %>
+    <section class="box">
     <%= label_tag :email %>
+    <br>
     <%= email_field_tag :email%>
+    <br><br>
     <%= label_tag :password %>
+    <br>
     <%= password_field_tag :password %>
+    <br><br>
     <%= submit_tag "Login" %>
 <% end %>
-<br>
-<%= link_to('Log in with Facebook!', '/auth/facebook') %>
+    <%= link_to('Log in with Facebook!', '/auth/facebook', class:"fb-btn") %>
+    </section>
+</section>

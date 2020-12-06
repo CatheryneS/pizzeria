@@ -13,36 +13,36 @@
 <% end %>
 
 <%= form_for @user do |f| %>
-
+  <section class="box">
     <section>
         <%= f.label :name %>
         <%= f.text_field :name %>
     </section>
-
+    <br>
     <section>
         <%= f.label :email %>
         <%= f.email_field :email %>
     </section>
-
+  <br>
     <section>
         <%= f.label :phone %>
         <%= f.telephone_field :phone %>
     </section>    
-
+<br>
     <% if !logged_in?%>
       <section>
           <%= f.label :password %>
           <%= f.password_field :password %>
       </section>
-
+<br>
       <section>
           <%= f.label :password_confirmation %>
           <%= f.password_field :password_confirmation %>
       </section>
     <% end %>
-    
+    <br>
     <section>
-        <%= f.submit %>
+        <%= f.submit "Sign Up"%>
     </section>
-   
+   </section>
 <% end %>
