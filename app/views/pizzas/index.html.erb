@@ -5,6 +5,7 @@
     <section class="card">
         <h3><%= link_to pizza.name, pizza_path(pizza), class:"name-link"%></h3>
         <p class="content"><%= pizza.description%></p>
+        <%= link_to 'Order Now',  new_order_path, class:"btn-order" %>
     </section>
 <% end %>
 
