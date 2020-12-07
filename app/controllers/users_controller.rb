@@ -18,6 +18,7 @@ class UsersController < ApplicationController
     end
 
     def show
+        @admin = User.find_by(id: 1)
     end
 
     def edit

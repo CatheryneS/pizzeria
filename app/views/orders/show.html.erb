@@ -1,31 +1,38 @@
-<h1>Order Details</h1>
+<section class="container">
+    <h1>Order Details</h1>
+        <section class="box">
+            <section class="content">
+            <h2>Status - <%= @order.status %></h2>
 
-<h2><%= @order.status %></h2>
+            <h3>Placed by - <%= @order.user.name %></h3>
 
-<h3>Placed by: <%= @order.user.name %></h3>
+            <h3><%= @order.created_at.strftime("Placed on %B %d, %Y at %-I:%M %p")%></h3>
 
-<h3><%= @order.created_at.strftime("Placed on %B %d, %Y at %-I:%M %p")%></h3>
+            <%if !@order.user.phone.empty?%>
+                <h3>Phone number provided: <%= @order.user.phone%></h3>
+            <% else %>
+                <h3>No phone number provided</h3>
+            <%end%>
 
-<%if !@order.user.phone.empty?%>
-    <h3>Phone number provided: <%= @order.user.phone%></h3>
-<% else %>
-    <h3>No phone number provided</h3>
-<%end%>
+            <h3>Email provided: <%= @order.user.email%></h3>
 
- <h3>Email provided: <%= @order.user.email%></h3>
-
- <h3>Pizzas ordered:</h3>
-    <ol>  
-    <% @order.pizzas.each do |pizza|%>
-      
-       <li><h4><%= pizza.name %></h4> <p><%= pizza.description%></p> </li>
-       
-    <% end %>
-   </ol>  
-   
-<%if !@order.note.nil?%>
-    <h3>Special request(s): <%= @order.note%></h3>
-<% else %>
-    <h3>Not special requests given at time of order.</h3>
-<%end%>
-<%= link_to 'Back to orders', user_orders_path(current_user) %> | <%= link_to 'Edit Order', edit_order_path(@order) %> | <%= link_to 'Cancel Order', order_path, method: :delete, data: {confirm: "Are you sure you want to cancel your order?"} %>
+            <h3>Pizzas ordered:</h3>
+                <ol>  
+                <% @order.pizzas.each do |pizza|%>
+                
+                <li><h4><%= pizza.name %></h4> <p><%= pizza.description%></p> </li>
+                
+                <% end %>
+            </ol>  
+            
+            <%if !@order.note.nil?%>
+                <h3>Special request(s): <%= @order.note%></h3>
+            <% else %>
+                <h3>Not special requests given at time of order.</h3>
+            <%end%>
+            </section>
+            <%= link_to 'Back to Orders', user_orders_path(current_user), class:"btn-order" %>
+            <%= link_to 'Edit Order notes', edit_order_path(@order), class:"btn-order" %>
+            <%= link_to 'Cancel Order', order_path, method: :delete, data: {confirm: "Are you sure you want to cancel your order?"}, class:"btn-order" %>
+        </section>
+</section>

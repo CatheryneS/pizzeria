@@ -1,8 +1,10 @@
 <%= form_with model: @pizza do |f| %>
+<section class="box">
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.label :name %> <br>
     <%= f.text_field :name %> <br> <br>
     <%= f.label :description %> <br>
     <%= f.text_area :description %> <br>
     <%= f.submit %>
+</section>
 <% end %>

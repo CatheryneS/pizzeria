@@ -19,15 +19,15 @@
 
   </head>
     <nav class="nav-bar">
-      <% if logged_in?%>
-        <%= link_to 'Order Now',  new_order_path %> 
-        <%= link_to 'Account', user_path(current_user) %> 
-        <%= link_to 'Orders', user_orders_path(current_user) %> 
-        <%= link_to 'Logout', logout_path, method: :delete %>
-      <% else %>
-        <%= link_to 'Sign Up', signup_path %> 
-        <%= link_to 'Login', login_path %>
-      <% end %>
+        <% if logged_in?%>
+          <%= link_to 'Account', user_path(current_user) %> 
+          <%= link_to 'Orders', user_orders_path(current_user) %> 
+          <%= link_to 'Logout', logout_path, method: :delete %>
+        <% else %>
+          <%= link_to 'Sign Up', signup_path %> 
+          <%= link_to 'Login', login_path %>
+        <% end %>
+      <%= link_to 'Order Now',  new_order_path %> 
       <%= link_to 'Pizzas', pizzas_path %>
       <%= link_to 'Home', root_path %>  
     </nav>  
