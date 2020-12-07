@@ -1,8 +1,12 @@
+<section class="container">
 <h1>Edit Order Notes</h1>
 <p>Forgot to add something or want to take something off? Add it here.</p>
 <%= form_with model: @order do |f|%>
- <%= f.label 'Special request(s)'%> <br>
- <%= f.text_area :note %> <br> 
+    <section class="box">
+        <%= f.label 'Special request(s)'%> <br>
+        <%= f.text_area :note %> <br> 
 
- <%= f.submit%>
+        <%= f.submit "Update Order Notes"%>
+ </section>
 <% end %>
+</section>

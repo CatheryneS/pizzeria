@@ -1,38 +1,40 @@
+<section class="container">
 <h1>Hi, <%= @user.name %>.</h1>
 
-<section>
-    <% if @user.image %>
-        <%= image_tag(@user.image)%>
-    <% end %>
-</section>
-
 <br>
-
-<h3>Total orders: <%= @user.orders.count %> </h3>
+<section class="box">
+<h2>Total orders: <%= @user.orders.count %> </h2>
 <% if @user.orders.count == 0 %>
-    <%= link_to 'ORDER NOW', new_order_path %>
+    <%= link_to 'ORDER NOW', new_order_path, class:"btn" %>
 <%else%>
-    <%= link_to 'View Orders', user_orders_path(current_user) %> 
+    <%= link_to 'View Orders', user_orders_path(current_user), class:"btn-order" %> 
 <% end %>
 
 <br>
 
-<h3>Your creations</h3>
+<h2>Your creations</h2>
 <% @user.pizzas.each do |p|%>
-    <section>
-        <%= p.name %> | <%= link_to 'edit', edit_pizza_path(p) %> | <%= link_to 'delete', pizza_path, method: :delete, data: {confirm: "Are you sure you want to delete your masterpiece?"} %>
+    <section class="clearfix">
+        <p class="creation-name"><%= p.name %></p>
+        <% if @user == @admin  %>
+        <%= link_to 'Edit', edit_pizza_path(p), class:"btn-account", id:"user" %>
+        <% end %>
+        <%= link_to 'Delete', pizza_path, method: :delete, data: {confirm: "Are you sure you want to delete your masterpiece?"}, class:"btn-account" %>
     </section>
 <% end %>
 
-<h3>Pizzas you've reviewed</h3>
+<h2>Pizzas you've reviewed</h2>
 <%if !@user.reviews.empty?%>
     <% @user.reviews.each do |r| %>
         <section>
-        <%= r.pizza.name%> | <%= link_to 'View review', review_path(r) %>
+        <p class="creation-name"><%= r.pizza.name %>  </p>
+        <%= link_to 'View review', review_path(r), class:"btn-account" %>
         </section>
     <% end %>
 <% else %>
-    <h4><%= link_to 'Review a pizza', pizzas_path %></h4>
+    <h4><%= link_to 'Review a pizza', pizzas_path, class:"btn-order" %></h4>
 <% end %>
 <br>
-<%= link_to 'Edit Account', edit_user_path %>
+<%= link_to 'Edit Account', edit_user_path, class:"btn-order" %>
+</section>
+</section>

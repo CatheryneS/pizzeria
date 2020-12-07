@@ -1,31 +1,33 @@
-<h1>Order</h1>
+<section class="container">
+  <h1>Order</h1>
+  <%= render partial: "layouts/errors", locals: {object: @order} %>
+    <section class="box">
+      <%= form_with model: @order do |f|%>
+      <h3><%= f.label 'Select pizza(s) from our collection'%></h3>
+        <section class="pizzas">
+          <%= f.collection_check_boxes(:pizza_ids, Pizza.admin_pizzas, :id, :name, {}, {multiple: true})%> <br>
+        </section>
+      <br/>
+      <h3><%= f.label 'Select pizza(s) from your collection'%> </h3>
+        <section class="pizzas">
+          <%= f.collection_check_boxes(:pizza_ids, current_user.pizzas, :id, :name, {}, {multiple: true})%> <br>
+        </section>
+      <br><h3><%= f.label 'Special request(s)'%></h3>
+      <%= f.text_area :note %> <br> 
 
-<%= render partial: "layouts/errors", locals: {object: @order} %>
+      <h2>Create your own</h2>
+      <p>You must name your pizza and tell us what you want on it. We do not offer cauliflower crust.</p>
 
-<%= form_for @order do |f|%>
- <h3><%= f.label 'Select pizza(s) from our collection'%></h3>
-   <section>
-   <%= f.collection_check_boxes(:pizza_ids, Pizza.admin_pizzas, :id, :name, {}, {multiple: true})%> <br>
-   </section>
-<br/>
- <h3><%= f.label 'Select pizza(s) from your collection'%> </h3>
-   <section>
-   <%= f.collection_check_boxes(:pizza_ids, current_user.pizzas, :id, :name, {}, {multiple: true})%> <br>
-   </section>
- <br><h3><%= f.label 'Special request(s)'%></h3>
- <%= f.text_area :note %> <br> 
-
- <h2>Create your own</h2>
- <p>You must name your pizza and tell us what you want on it. We do not offer cauliflower crust.</p>
- 
- <%= f.fields_for :pizzas do |pizza|%>
-    <h3>New Pizza</h3>
-    <%= pizza.label :name, "Name Your Pizza" %> <br>
-    <%= pizza.text_field :name %> <br> <br>
-    <%= pizza.label :description %> <br>
-    <%= pizza.text_area :description %> <br>
-    <%= pizza.hidden_field :user_id, value: current_user.id %>
- <% end %>
-
- <%= f.submit%>
-<% end %>
+      <%= f.fields_for :pizzas do |pizza|%>
+          <h3>New Pizza</h3>
+          <%= pizza.label :name, "Name Your Pizza" %> <br>
+          <%= pizza.text_field :name %> <br> <br>
+          <%= pizza.label :description %> <br>
+          <%= pizza.text_area :description %> <br>
+          <%= pizza.hidden_field :user_id, value: current_user.id %>
+      <% end %>
+      <br>
+      <%= f.submit "Place Order"%>
+      </section>
+      <% end %>
+</section>

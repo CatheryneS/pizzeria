@@ -1,19 +1,31 @@
-<h1>Edit your review on </h1>
+<% if @review.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@review.errors.count, "error") %>
+      prohibited this review from being saved:
+    </h2>
+    <ul>
+    <% @review.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<section class="container">
+<h1>Edit your review </h1>
 
 <%= render partial: "layouts/errors", locals: {object: @review} %>
 
 <%= form_for(@review) do |f| %>
-   <section>
+   <section class="box">
         <%= f.label :rating%>
         <%= f.number_field :rating, within: 1...6%>
-   </section> 
-   
-   <section>
+ 
         <%= f.label :content, "Review:"%> <br>
         <%= f.text_area(:content, max: 250, min: 2) %>
-   </section> 
 
-   <section>
         <%= f.submit "Submit Review"%>
    </section>
 <% end %>
+</section>

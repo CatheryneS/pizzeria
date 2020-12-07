@@ -1,3 +1,20 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+a.btn-account {
+    background-color: #debea0;
+    color: white;
+    display: inline-block;
+    border-radius: 1vmax;
+    padding: 0.5vmax;
+    font-family: 'Playfair Display', serif;
+    font-size: small;
+    float: right;
+}
+
+.creation-name {
+    display: inline-block;
+    color: #9d5981;
+    font-family: 'Playfair Display', serif;
+    font-size: medium;
+}

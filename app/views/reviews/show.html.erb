@@ -1,13 +1,17 @@
+<section class="container">
 <h1><%= @review.pizza.name %></h1>
+    <section class="card">
+        <h3 class="name"><%= @review.user.name%> said:</h3>
 
-<h3><%= @review.user.name%> said:</h3>
+        <h4 class="content">Rating: <%= @review.rating %> stars </h4>
+        <p class="content"><%= @review.content %></p>
+        
+        <%= link_to 'Back to pizza', pizza_path(@review.pizza), class:"btn-order" %>
+        <%= link_to 'Back to pizzas', pizzas_path, class:"btn-order" %> 
 
-<h4>Rating: <%= @review.rating %> stars </h4>
-<p><%= @review.content %></p>
-
-<%= link_to 'Back to pizza', pizza_path(@review.pizza) %> | <%= link_to 'Back to pizzas', pizzas_path %> 
-
-<% if current_user == @review.user %>
-   | <%= link_to 'Edit', edit_review_path(@review) %> |
-    <%= link_to 'Delete', review_path, method: :delete, data: {confirm: "Are you sure you want to delete your review?"} %>
-<% end %>
+        <% if current_user == @review.user %>
+        <%= link_to 'Edit', edit_review_path(@review), class:"btn-order" %>
+            <%= link_to 'Delete', review_path, method: :delete, data: {confirm: "Are you sure you want to delete your review?"}, class:"btn-order" %>
+        <% end %>
+    </section>
+</section>

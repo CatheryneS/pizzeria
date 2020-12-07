@@ -4,34 +4,43 @@
     <title>Pizzeria</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
     <style>
         .error { color: red; }
         .success {color: green;}
     </style>
-  </head>
-    <div>
-      <%= link_to 'Home', root_path %> | <%= link_to 'Pizzas', pizzas_path %> |
-      <% if logged_in?%>
-        <%= link_to 'Order Now',  new_order_path %> |
-        <%= link_to 'Account', user_path(current_user) %> |
-        <%= link_to 'Orders', user_orders_path(current_user) %> |
-        <%= link_to 'Logout', logout_path, method: :delete %>
-      <% else %>
-        <%= link_to 'Sign Up', signup_path %> |
-        <%= link_to 'Login', login_path %>
-      <% end %>
-      
+    <div class="header">
+      <h1>Personal Pan Delights</h1>
+      <p>A pizzeria with you in mind.</p>
     </div>
+
+  </head>
+    <nav class="nav-bar">
+        <% if logged_in?%>
+          <%= link_to 'Account', user_path(current_user) %> 
+          <%= link_to 'Orders', user_orders_path(current_user) %> 
+          <%= link_to 'Logout', logout_path, method: :delete %>
+        <% else %>
+          <%= link_to 'Sign Up', signup_path %> 
+          <%= link_to 'Login', login_path %>
+        <% end %>
+      <%= link_to 'Order Now',  new_order_path %> 
+      <%= link_to 'Pizzas', pizzas_path %>
+      <%= link_to 'Home', root_path %>  
+    </nav>  
   <body>
+
+    
   <% if flash[:error] %>
     <section class='error'><%= flash[:error]%></section>
   <% else %>
     <section class='success'><%= flash[:success]%></section>
   <% end %>
     <%= yield %>
+  <%= render "layouts/footer" %>
   </body>
+
 </html>

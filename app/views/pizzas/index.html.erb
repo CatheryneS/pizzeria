@@ -1,32 +1,33 @@
-<h1>Pizzas</h1>
-
-<%= form_tag pizzas_path, :method => 'get' do%>
-<%= text_field_tag :query, params[:query] %>
-<%= submit_tag "Search"%>
-<% end %>
-
-<br>
-<h2>Our Creations </h2>
-
-<%if @pizzas.empty? %>
-    <p>Hmmm... The chief hasn't baked "<%= params[:query] %>" pizza before.</p>
-<% else %>
-    <% @pizzas.each do |pizza| %>
-        <section>
-            <h3><%= link_to pizza.name, pizza_path(pizza) %></h3>
-            <p><%= pizza.description%></p>
-        </section>
+<section class="container">
+    <h1>Pizzas</h1>
+    <%= form_tag pizzas_path, :method => 'get' do%>
+    <%= text_field_tag :query, params[:query] %>
+    <%= submit_tag "Search"%>
     <% end %>
-<% end %>
-<br>
+    <h2>Our Creations </h2>
+    <%if @pizzas.empty? %>
+        <p>Hmmm... The chief hasn't baked "<%= params[:query] %>" pizza before.</p>
+    <% else %>
+        <% @pizzas.each do |pizza| %>
+            <section class="card">
+                <h3><%= link_to pizza.name, pizza_path(pizza), class:"name-link"%></h3>
+                <p class="content"><%= pizza.description%></p>
+                <%= link_to 'Order Now',  new_order_path, class:"btn-order" %>
+            </section>
+        <% end %>
+    <% end %>
+
+ <br>
 <% if logged_in? %>
     <h2>Your Creations </h2>
-    <h3><%= link_to 'Create your own', new_order_path %></h3>
+    <h3><%= link_to 'Create Your Own', new_order_path, class:"btn" %></h3>
     <% @user.pizzas.each do |pizza| %>
-        <section>
-         <h3><%= link_to pizza.name, pizza_path(pizza) %></h3>
-        <p><%= pizza.description%></p>
+        <section class="card">
+         <h3><%= link_to pizza.name, pizza_path(pizza), class:"name-link" %></h3>
+        <p class="content"><%= pizza.description%></p>
+        <%= link_to 'Order Now',  new_order_path, class:"btn-order" %>
         </section>
     <% end %>
     
 <% end %>
+</section>
