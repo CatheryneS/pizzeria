@@ -11,7 +11,7 @@ The pizzas can be reviewed as well.
 Each customer can place and order and view the details.
 
 ## Project Status
-This application will be continued to be built out with an admin dashboard that allows all orders to be viewed and order statuses to be changed. They will also be able to view sales and respond to the customer reviews.
+This application will be continued to be built out with an admin dashboard, pricing, topping selection, and complex ordering. The dashboard will allow all orders to be viewed and order statuses to be changed. The admin will also be able to view sales and respond to the customer reviews. 
 
 ## License
 MIT License
