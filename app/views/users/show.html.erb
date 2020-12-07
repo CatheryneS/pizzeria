@@ -1,12 +1,6 @@
 <section class="container">
 <h1>Hi, <%= @user.name %>.</h1>
 
-<section>
-    <% if @user.image %>
-        <%= image_tag(@user.image)%>
-    <% end %>
-</section>
-<%byebug%>
 <br>
 <section class="box">
 <h2>Total orders: <%= @user.orders.count %> </h2>
@@ -20,10 +14,10 @@
 
 <h2>Your creations</h2>
 <% @user.pizzas.each do |p|%>
-    <section>
+    <section class="clearfix">
         <p class="creation-name"><%= p.name %></p>
         <% if @user == @admin  %>
-        <%= link_to 'Edit', edit_pizza_path(p), class:"btn-account" %>
+        <%= link_to 'Edit', edit_pizza_path(p), class:"btn-account", id:"user" %>
         <% end %>
         <%= link_to 'Delete', pizza_path, method: :delete, data: {confirm: "Are you sure you want to delete your masterpiece?"}, class:"btn-account" %>
     </section>
