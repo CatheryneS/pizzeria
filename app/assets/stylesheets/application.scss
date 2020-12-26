@@ -57,12 +57,24 @@
  }
 
 footer {
-    position: relative;
+    position: absolute;
     margin-top: 5vmax;
     width: 100%;
-    padding-top: 2vmax;
-    padding-bottom: 1vmax;
+    height: 50px;
+    bottom: 0;
+    padding-top: 1vmax;
+    padding-bottom: 2vmax;
     text-align: center;
     background: #9d5981;
     color: white;
+  }
+  body {
+      position: relative;
+      min-height: 100vh;
+      margin: 0;
+  }
+  body::after {
+      content: '';
+      display: block;
+      height: 20vh;
   }

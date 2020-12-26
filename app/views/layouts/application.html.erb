@@ -33,14 +33,22 @@
     </nav>  
   <body>
 
-    
-  <% if flash[:error] %>
-    <section class='error'><%= flash[:error]%></section>
-  <% else %>
-    <section class='success'><%= flash[:success]%></section>
-  <% end %>
-    <%= yield %>
-  <%= render "layouts/footer" %>
+    <section id="page-container">
+
+      <% if flash[:error] %>
+        <section class='error'><%= flash[:error]%></section>
+      <% else %>
+        <section class='success'><%= flash[:success]%></section>
+      <% end %>
+
+        <main id="content-wrap">
+          <%= yield %>
+        </main>
+
+      <%= render "layouts/footer" %>
+
+    </section>
+
   </body>
 
 </html>
