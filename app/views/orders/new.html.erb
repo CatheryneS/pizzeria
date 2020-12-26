@@ -1,6 +1,7 @@
 <section class="container">
   <h1>Order</h1>
   <%= render partial: "layouts/errors", locals: {object: @order} %>
+  
     <section class="box">
       <%= form_with model: @order do |f|%>
       <h3><%= f.label 'Select pizza(s) from our collection'%></h3>

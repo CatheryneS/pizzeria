@@ -1,10 +1,12 @@
 <section class="container">
     <h1>Pizzas</h1>
-    <%= form_tag pizzas_path, :method => 'get' do%>
-    <%= text_field_tag :query, params[:query] %>
-    <%= submit_tag "Search"%>
-    <% end %>
     <h2>Our Creations </h2>
+        <section class="search">
+            <%= form_tag pizzas_path, :method => 'get' do%>
+            <%= text_field_tag :query, params[:query] %>
+            <%= submit_tag "Search", class:"btn"%> 
+            <% end %>
+        </section>
     <%if @pizzas.empty? %>
         <p>Hmmm... The chief hasn't baked "<%= params[:query] %>" pizza before.</p>
     <% else %>

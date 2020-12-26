@@ -57,3 +57,13 @@
 #link-review {
     float: right;
 }
+.search input[type=text] {
+    margin: 0;
+    display: inline;
+    width: 25vmax;
+    height: 4vh;
+}
+
+.search .btn {
+    width: 12vw;
+}
