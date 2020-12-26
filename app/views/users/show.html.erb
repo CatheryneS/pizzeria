@@ -26,7 +26,7 @@
 <h2>Pizzas you've reviewed</h2>
 <%if !@user.reviews.empty?%>
     <% @user.reviews.each do |r| %>
-        <section>
+        <section class="clearfix">
         <p class="creation-name"><%= r.pizza.name %>  </p>
         <%= link_to 'View review', review_path(r), class:"btn-account" %>
         </section>
