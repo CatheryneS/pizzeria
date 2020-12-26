@@ -1,12 +1,13 @@
 <section class="container">
-<h1><%= current_user.name%>'s Orders</h1>
-<%= link_to 'Back to Account', user_path(current_user), class:"name-link" %>
-<br>
-<% current_user.orders.each do |order| %>
-    <section class="box">
-       <h3 class="name"><%= order.created_at.strftime("Placed on %B %d, %Y at %-I:%M %p") %></h3>
-       <h3 class="content">Total pizzas ordered: <%= order.pizzas.count%></h3> 
-        <%= link_to 'Order details', order_path(order), class:"btn" %>
-    </section>
-<% end %>
+    <h1><%= @user.name%>'s Orders</h1>
+        <%= link_to 'Back to Account', user_path(@user), class:"name-link" %>
+    <br>
+    
+    <% @orders.each do |order| %>
+        <section class="box">
+            <h3 class="name"><%= order.created_at.strftime("Placed on %B %d, %Y at %-I:%M %p") %></h3>
+            <h3 class="content">Total pizzas ordered: <%= order.pizzas.count%></h3> 
+                <%= link_to 'Order details', order_path(order), class:"btn" %>
+        </section>
+    <% end %>
 </section>

@@ -6,6 +6,11 @@ class OrdersController < ApplicationController
         3.times{@order.pizzas.build}
     end
 
+    def index
+        @user = current_user
+        @orders = @user.orders.order(created_at: :desc)
+    end
+
     def create 
         @order = current_user.orders.build(order_params)
         @order.status = "In Progress"
