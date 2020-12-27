@@ -34,5 +34,18 @@ function topFunction() {
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
-$(".alert-success" ).fadeOut(3000);
-$(".alert-danger" ).fadeOut(3000);
+$(document).ready(function() {
+  setTimeout(function() {
+    $('.danger').fadeOut("slow", function() {
+      $(this).remove();
+    })
+  }, 3000)
+})
+
+$(document).ready(function() {
+  setTimeout(function() {
+    $('.success').fadeOut("slow", function() {
+      $(this).remove();
+    })
+  }, 3000)
+})

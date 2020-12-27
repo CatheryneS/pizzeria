@@ -12,49 +12,50 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap-sprockets";
- @import "bootstrap";
+@import "bootstrap-sprockets";
+@import "bootstrap";
  
 
- .nav-bar {
-     background-color: #debea0;
-     padding-top: 0.5vh;
-     padding-bottom: 4vh;
- }
+.nav-bar {
+    background-color: #debea0;
+    padding-top: 0.5vh;
+    padding-bottom: 4vh;
+}
 
- .nav-bar a{
-     color: rgb(255, 255, 255);
-     float: right;
-     font-size: 2.5vh;
-     font-family: 'Playfair Display', serif;
-     padding-inline-start: 1vw;
-     padding-bottom: 3vh;
-     padding-right: .5vw;
- }
+.nav-bar a{
+    color: rgb(255, 255, 255);
+    float: right;
+    font-size: 2.5vh;
+    font-family: 'Playfair Display', serif;
+    padding-inline-start: 1vw;
+    padding-bottom: 3vh;
+    padding-right: .5vw;
+}
 
- .header{ 
-     padding: 0.5vmin;
-     text-align: center;
-     background: #9d5981;
- }
+.header{ 
+    padding: 0.5vmin;
+    text-align: center;
+    background: #9d5981;
+}
 
- .header h1{
-     color: white;
-     font-family: 'Playfair Display', serif;
-     font-size: 4vw;
- }
- .header p{
+.header h1{
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 4vw;
+}
+
+.header p{
     font-family: 'Poppins', sans-serif;
     font-size: 2vw;
- }
+}
 
- .btn {
+.btn {
     background-color: #debea0;
     color: white;
     display: inline-block;
     font-family: 'Playfair Display', serif;
     font-size: large;
- }
+}
 
 footer {
     position: absolute;
@@ -67,14 +68,34 @@ footer {
     text-align: center;
     background: #9d5981;
     color: white;
-  }
+}
+
   body {
-      position: relative;
-      min-height: 100vh;
-      margin: 0;
-  }
-  body::after {
-      content: '';
-      display: block;
-      height: 20vh;
-  }
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+}
+
+body::after {
+    content: '';
+    display: block;
+    height: 20vh;
+}
+
+.danger, .success {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    background-color: #debea0ef;
+
+    p {
+        padding-top: 1vh;
+        text-align: center;
+        font-weight: 700;
+        color: white;
+        font-family: 'Playfair Display', serif;
+        font-size: large;
+        letter-spacing: 2px;
+    }
+}

@@ -29,6 +29,7 @@ class UsersController < ApplicationController
             @user.update(user_params)
             flash[:success] = "Your account has been updated."
             redirect_to user_path(@user)
+            flash.discard
         else
             flash[:error] = "You must be logged in to access account."
             redirect_to root_path
