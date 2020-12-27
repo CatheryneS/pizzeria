@@ -10,4 +10,52 @@
     text-transform: uppercase;
     position: fixed;
     
+}  
+
+.pizza-img {
+    float: left;
+    width: 40%;
+    height: 40%;
+    padding-right: 1vmax;
+}
+
+.main-container {
+    padding: 2vmax;
+}
+
+#scroll {
+    float: right;
+    margin-right: 5vmax;
+}
+.main-container h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4vmax;
+    text-align: center;
+    padding-bottom: -20px;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.heroImage {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://i.ibb.co/hZYVh70/kelvin-theseira-Ac-A8mo-Ii-D3g-unsplash.jpg');
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 50%;
+    padding-bottom: 1vmax;
+	position: relative;
+}
+
+.heroContents {
+    padding-top: 25px;
+    padding-bottom: 20px;
+	text-align: center;
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 4vw;
 }

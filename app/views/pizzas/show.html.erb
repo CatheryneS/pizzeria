@@ -7,7 +7,7 @@
 
 <h2>Reviews</h2>
 <% @pizza.reviews.each do |review| %>
-    <section class="card">
+    <section class="custom-card">
         <h3 class="name"><%= review.user.name %></h3>
         <h4 class="content">Rating: <%= review.rating %> star(s)</h4>
         <p class="content"><%= review.content %></p>

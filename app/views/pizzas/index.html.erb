@@ -11,7 +11,7 @@
         <p>Hmmm... The chief hasn't baked "<%= params[:query] %>" pizza before.</p>
     <% else %>
         <% @pizzas.each do |pizza| %>
-            <section class="card">
+            <section class="custom-card">
                 <h3><%= link_to pizza.name, pizza_path(pizza), class:"name-link"%></h3>
                 <p class="content"><%= pizza.description%></p>
                 <%= link_to 'Order Now',  new_order_path, class:"btn-order" %>
@@ -24,7 +24,7 @@
     <h2>Your Creations </h2>
     <h3><%= link_to 'Create Your Own', new_order_path, class:"btn" %></h3>
     <% @user.pizzas.each do |pizza| %>
-        <section class="card">
+        <section class="custom-card">
          <h3><%= link_to pizza.name, pizza_path(pizza), class:"name-link" %></h3>
         <p class="content"><%= pizza.description%></p>
         <%= link_to 'Order Now',  new_order_path, class:"btn-order" %>
