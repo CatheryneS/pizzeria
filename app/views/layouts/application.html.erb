@@ -8,10 +8,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
-    <style>
-        .error { color: red; }
-        .success {color: green;}
-    </style>
+
     <div class="header">
       <h1>Personal Pan Delights</h1>
       <p>A pizzeria with you in mind.</p>
@@ -34,12 +31,11 @@
   <body>
 
     <section id="page-container">
-
-      <% if flash[:error] %>
-        <section class='error'><%= flash[:error]%></section>
-      <% else %>
-        <section class='success'><%= flash[:success]%></section>
-      <% end %>
+        <% flash.each do |key, value| %>
+              <div class="<%= flash_class(key) %>" role="alert">
+                    <%= value %>
+              </div>
+        <% end %>
 
         <main id="content-wrap">
           <%= yield %>
